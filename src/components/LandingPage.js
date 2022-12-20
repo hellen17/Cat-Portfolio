@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navbar } from './Navbar';
 import GetImages from './GetImages';
+import Form from './Form';
+import Footer from './Footer';
 import { Button, ButtonGroup } from '@chakra-ui/react'
 
 export default function LandingPage() {
@@ -23,6 +25,8 @@ export default function LandingPage() {
                 </section>
                 {/* Heroshot section end */}
             <GetImages />
+            <Form />
+            <Footer />
             </div>
         </>
       

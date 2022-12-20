@@ -8,7 +8,7 @@ export default function GetImages() {
 
     return (
         <section className='px-5 my-10'>
-        <h1 className='text-4xl font-bold text-center py-5'>Meet Our Furbabies</h1>
+        <h2 className='text-4xl font-bold text-center py-5'>Meet Our Furbabies</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                 {catData.map((cat, index) => {
                     return (
