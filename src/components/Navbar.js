@@ -26,7 +26,7 @@ export function Navbar() {
     return (
         <nav style={styles.nav}>
             <div style={styles.logoContainer}> 
-                <img src="/path/to/logo.png" style={{width: '3rem', height: '3rem'}} /> 
+                <img src="images/logo.png" style={{width: '3rem', height: '3rem'}} /> 
             </div>
             <div style={{ display: 'flex' }}>
                 <a style={styles.a} href="/">Home</a>

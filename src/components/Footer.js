@@ -5,7 +5,9 @@ export default function Footer(){
         <footer class="bg-gray-800 py-10 text-gray-400 text-xl px-5">
             <div class="flex flex-col lg:flex-row">
                 <div class="w-full lg:w-1/3">
-                    <h3 className='text-2xl font-bold mb-5'>About Us</h3>
+                    <img src="images/logo-removebg.png" style={{width: '3rem', height: '3rem'}} /> 
+
+                    <h3 className='text-2xl font-bold my-5'>About Us</h3>
                     <p className='text-gray-600 mb-8'>A website designed for Cat Lovers. </p>                
                 </div>
                 <div class="w-full lg:w-1/3 flex-1">
