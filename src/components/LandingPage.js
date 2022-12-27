@@ -13,8 +13,8 @@ export default function LandingPage() {
             <div className='mx-auto'>
                 {/* Heroshot section */}
                 <section className="grid lg:grid-cols-2 bg-red-200 px-5">
-                    <div className="">
-                        <img className='rounded mx-auto' src='images/heroshot.png' alt='Cat' />
+                    <div className="md:w-full mx-auto">
+                        <img className='rounded text-center' src='images/heroshot.png' alt='Cat' />
                     </div>
                     <div className="text-left" style={{ padding: '8rem' }}>
                         <h1 className="text-4xl font-bold pb-5">Designed for Cat Lovers</h1>

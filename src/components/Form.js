@@ -30,7 +30,7 @@ export default function Form(){
         e.preventDefault()
         console.log(formData)
         alert('Thank you for subscribing!')
-        
+
         // Reset the form
         setFormData({
             firstName: "",
@@ -44,7 +44,7 @@ export default function Form(){
             <h2 className='text-4xl font-bold text-center py-5 '>Join our Newsletter</h2>
             <form onSubmit={handleSubmit} >
             <FormControl isRequired style={{ width: '75%' }} className='mx-auto pt-10'  >
-                <div className='flex'>
+                <div className='lg:flex'>
                     <div className='flex-1 mr-5'>
                         <FormLabel>First name</FormLabel>
                         <Input placeholder='First name' name='firstName' value={formData.firstName} onChange={handleChange} />
