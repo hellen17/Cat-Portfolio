@@ -64,7 +64,7 @@ export default function Form(){
             console.log(response)
 
             if (response.status === 200) {
-                alert('Thank you for subscribing!')
+                alert(`Thank you ${firstName} for subscribing!`)
                 console.log(response)
                   // Reset the form
                   setFormData({
