@@ -106,7 +106,7 @@ export default function Form(){
                     <FormLabel>Email address</FormLabel>
                     <Input type="email" placeholder="Enter your email" name='email' value={email} onChange={handleChange} />
                     <FormHelperText>We'll never share your email.</FormHelperText>
-                    <Button type='submit' colorScheme='' className='bg-red-400' mt={5}>Submit</Button>
+                    <Button type='submit' colorScheme='' className='bg-red-400 hover:bg-red-500' mt={5}>Submit</Button>
                 </FormControl>
             </form>
 

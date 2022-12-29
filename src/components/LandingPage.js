@@ -19,7 +19,7 @@ export default function LandingPage() {
                     <div className="text-left" style={{ padding: '8rem' }}>
                         <h1 className="text-4xl font-bold pb-5">Designed for Cat Lovers</h1>
                         <p className="text-2xl">Our furbabies come in all shape colors and sizes and deserve to be admired.</p>
-                        <Button colorScheme='' className='mt-5 bg-red-400' >Get Started</Button>
+                        <Button colorScheme='' className='mt-5 bg-red-400 hover:bg-red-500' >Get Started</Button>
 
                     </div>
                 </section>
