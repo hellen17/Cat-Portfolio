@@ -1,3 +1,6 @@
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
+
 export function Navbar() {
     const styles = {
         nav: {
@@ -24,16 +27,16 @@ export function Navbar() {
     }
 
     return (
-        <nav style={styles.nav}>
-            <div style={styles.logoContainer}> 
-                <img src="images/logo.png" style={{width: '3rem', height: '3rem'}} /> 
-            </div>
-            <div style={{ display: 'flex' }}>
-                <a style={styles.a} href="/">Home</a>
-                <a style={styles.a} href="">Images</a>
-                <a style={styles.a} href="">Sign Up</a>
-            </div>
         
-        </nav>
+            <nav style={styles.nav}>
+                <div style={styles.logoContainer}> 
+                    <img src="images/logo.png" style={{width: '3rem', height: '3rem'}} /> 
+                </div>
+                <div style={{ display: 'flex' }}>
+                    <Link style={styles.a} to="/">Home</Link>
+                    <Link style={styles.a} to="">Images</Link>
+                    <Link style={styles.a} to="/signup">Sign Up</Link>
+                </div>            
+            </nav>
     )
 }

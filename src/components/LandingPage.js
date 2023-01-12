@@ -9,7 +9,6 @@ export default function LandingPage() {
     return (
 
         <>
-            <Navbar />
             <div className='mx-auto'>
                 {/* Heroshot section */}
                 <section className="grid lg:grid-cols-2 bg-red-200 px-5">
