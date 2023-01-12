@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.1",
     "css-select": "^5.1.0",
+    "firebase": "^9.15.0",
     "framer-motion": "^7.8.0",
     "nth-check": "^2.1.1",
     "react": "^18.2.0",

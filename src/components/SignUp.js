@@ -8,6 +8,8 @@ import {
     Button
   } from '@chakra-ui/react'
 
+import { db } from '../firebase.config';
+import { collection, addDoc } from 'firebase/firestore';
 
 export default function SignUp(){
     const [formData, setFormData] = useState({
@@ -16,10 +18,11 @@ export default function SignUp(){
         email: '',
         password: '',
         confirmPassword: ''
-
+       
     })
 
     const {firstName, lastName, email, password, confirmPassword} = formData
+    const usersCollectionRef = collection(db, 'users')
 
     function handleChange(e){
         const {name, value} = e.target
@@ -28,11 +31,29 @@ export default function SignUp(){
             [name] : value
         })
     }
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault()
+        //send data to firebase
+        try{
+            const docRef = await addDoc(usersCollectionRef, {
+                firstName: firstName,
+                lastName: lastName,
+                email: email, 
+                password: password,
+                confirmPassword: confirmPassword       
+            })
+            alert(`Thank you ${firstName} for signing up!`)
+
+            console.log('Document written with ID: ', docRef.id);
+        }
+        catch(e){
+            console.error('Error adding document: ', e);
+        }
+       
         console.log(formData)
-        alert(`Thank you ${firstName} for signing up!`)
     }
+
+
 
     return (
         <section className='px-5 my-10 '>
@@ -51,7 +72,6 @@ export default function SignUp(){
                 </div>
                 <FormLabel>Email address</FormLabel>
                 <Input type="email" placeholder="Enter your email" name='email' value={email} onChange={handleChange} />
-                <FormHelperText>We'll never share your email.</FormHelperText>
                 <FormLabel>Password</FormLabel>
                 <Input type="password" placeholder="Enter your password" name='password' value={password} onChange={handleChange} />
                 <FormLabel>Confirm Password</FormLabel>
