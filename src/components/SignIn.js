@@ -48,7 +48,7 @@ export default function SignIn(){
 
     return (
         <section className='px-5 my-10 '>
-        <h1 className='text-6xl font-bold text-center py-5 '>{ user ? user.email : 'Not logged in'}</h1>
+        {/* <h1 className='text-6xl font-bold text-center py-5 '>{ user ? user.email : 'Not logged in'}</h1> */}
         <h2 className='text-4xl font-bold text-center py-5 '>Sign In</h2>
         <form onSubmit={login} >
             <FormControl isRequired style={{ width: '75%' }} className='mx-auto pt-10'  >
