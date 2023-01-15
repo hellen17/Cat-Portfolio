@@ -38,6 +38,8 @@ export function Navbar() {
         });
         }, []);
 
+    
+
     async function logout(){
         await signOut(auth)
     }
