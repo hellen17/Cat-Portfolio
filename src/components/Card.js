@@ -29,6 +29,8 @@ export default function CatCards({name, age, color, url, breed}){
                     objectFit='cover'
                     src={url}
                     alt={name}
+                   
+                    
                 />
             </CardHeader>
             <CardBody>
