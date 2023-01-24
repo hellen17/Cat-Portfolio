@@ -31,6 +31,11 @@ export function Navbar() {
     }
 
     const [user,setUser] = useState(null)
+    const [dropdown, setDropdown] = useState(false)
+
+    function handleToggle(){
+        setDropdown(!dropdown)
+    }
 
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
@@ -42,6 +47,8 @@ export function Navbar() {
 
     async function logout(){
         await signOut(auth)
+        localStorage.clear();
+
     }
 
     return (
@@ -53,7 +60,40 @@ export function Navbar() {
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Link style={styles.a} to="/">Home</Link>
                     <Link style={styles.a} to="">Images</Link>
-                    {user ? <span>{`Welcome ${auth.currentUser.displayName}`}<button className='bg-red-900 py-1 ml-2 rounded-lg'><Link style={styles.a} to="/signin" onClick={logout}>Logout</Link></button> </span>  : <Link style={styles.a} to="/signin">Sign In</Link>}
+                    {/* {user ? <span>{`Welcome ${auth.currentUser.displayName}`}<button className='bg-red-900 py-1 ml-2 rounded-lg'><Link style={styles.a} to="/signin" onClick={logout}>Logout</Link></button> </span>  : <Link style={styles.a} to="/signin">Sign In</Link>} */}
+
+                    {user ? (
+                        <div>
+                            <span
+                            onClick={handleToggle}
+                            >
+                            Welcome {auth.currentUser.displayName}
+                            </span>
+                            <div
+                            className={`bg-white shadow-md absolute py-2 z-50 ${
+                                dropdown ? "block" : "hidden"
+                            }`}
+                            >
+                            <Link
+                                to="/profile"
+                                className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                            >
+                                View Profile
+                            </Link>
+                            <span
+                                className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                                onClick={logout}
+                            >
+                                <Link to="/signin">Logout</Link>
+                            </span>
+                            </div>
+                            </div>
+                            ) : (
+                            <Link to="/signin" style={styles.a}>
+                                Sign In
+                            </Link>
+                            )}
+   
                 </div>            
             </nav>
     )
