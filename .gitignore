@@ -24,4 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # Ignore vetData file in the src folder
-/src/vetData.js
+# /src/vetData.js
