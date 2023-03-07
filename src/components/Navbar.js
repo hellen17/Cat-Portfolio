@@ -60,6 +60,8 @@ export function Navbar() {
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Link style={styles.a} to="/">Home</Link>
                     <Link style={styles.a} to="">Images</Link>
+                    <Link style={styles.a} to="/vets">Browse Vets</Link>
+
                     {/* {user ? <span>{`Welcome ${auth.currentUser.displayName}`}<button className='bg-red-900 py-1 ml-2 rounded-lg'><Link style={styles.a} to="/signin" onClick={logout}>Logout</Link></button> </span>  : <Link style={styles.a} to="/signin">Sign In</Link>} */}
 
                     {user ? (
