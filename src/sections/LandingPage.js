@@ -1,9 +1,7 @@
 import React from 'react';
-import { Navbar } from '../components/Navbar';
 import GetImages from '../components/GetImages';
 import Form from '../components/Form';
-import Footer from '../components/Footer';
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
 
 export default function LandingPage() {

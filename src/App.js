@@ -1,6 +1,6 @@
 import './App.css';
 import LandingPage from './sections/LandingPage';
-import { Navbar } from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SignUp from './sections/SignUp';
