@@ -1,9 +1,10 @@
-import './App.css';
-import LandingPage from './components/LandingPage';
-import { Navbar } from './components/Navbar';
+import LandingPage from './sections/LandingPage';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SignUp from './components/SignUp';
-import SignIn from './components/SignIn';
+import SignUp from './sections/SignUp';
+import SignIn from './sections/SignIn';
+import DisplayVets from './sections/DisplayVets';
 import Profile from './components/Profile';
 
 // 1. import `ChakraProvider` component
@@ -21,7 +22,10 @@ function App() {
           <Route path="/signup" element={<SignUp/>} />
           <Route path="/signin" element={<SignIn/>} />
           <Route path="/profile" element={<Profile/>} />
+          <Route path="/vets" element={<DisplayVets/>} />
           </Routes>
+          <Footer />
+
         </BrowserRouter>
     </ChakraProvider>
 

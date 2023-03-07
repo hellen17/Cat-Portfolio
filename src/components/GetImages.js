@@ -1,4 +1,4 @@
-import catData from '../catData.js'
+import catData from '../mockdata/catData.js'
 import CatCards from './Card'
 
 
