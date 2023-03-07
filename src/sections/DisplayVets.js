@@ -1,9 +1,8 @@
 import { useState } from "react"
 import { FaEnvelope, FaPhone } from "react-icons/fa"
-import vetData from "../vetData"
 import { Button } from '@chakra-ui/react'
 import { Link } from 'react-scroll';
-
+import vetData from "../mockdata/vetData";
 
 console.log(vetData)
 
