@@ -26,7 +26,6 @@ export default function LandingPage() {
                 {/* Heroshot section end */}
             <GetImages />
             <Form />
-            <Footer />
             </div>
         </>
       

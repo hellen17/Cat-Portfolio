@@ -1,6 +1,7 @@
 import './App.css';
 import LandingPage from './sections/LandingPage';
 import { Navbar } from './components/Navbar';
+import Footer from './components/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SignUp from './sections/SignUp';
 import SignIn from './sections/SignIn';
@@ -24,6 +25,8 @@ function App() {
           <Route path="/profile" element={<Profile/>} />
           <Route path="/vets" element={<DisplayVets/>} />
           </Routes>
+          <Footer />
+
         </BrowserRouter>
     </ChakraProvider>
 
