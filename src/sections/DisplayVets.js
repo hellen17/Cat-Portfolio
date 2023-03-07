@@ -1,14 +1,58 @@
+import { useState } from "react"
+import { FaEnvelope, FaPhone } from "react-icons/fa"
 import vetData from "../vetData"
+
 
 console.log(vetData)
 
 export default function DisplayVets() {
 
+    const [query, setQuery] = useState("")
+    console.log(query)
+    const q = query.toLowerCase()
+
+    const cities = [...new Set(vetData.map((vet) => vet.city))];
+
+
     return(
         <section className='px-5 my-10'>
         <h2 className='text-4xl font-bold text-center py-5'>Vets  </h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
-              {vetData.map((vet, index) => {
+
+        <div className='flex flex-col lg:flex-row justify-between items-center gap-3'>
+            <input type="text" placeholder="Search.." className="w-full lg:w-3/4 mb-5 border-2 border-gray-300 p-3 rounded-lg focus:outline-none focus:border-pink-400"
+              onChange={(e)=> setQuery(e.target.value)}
+             /> 
+
+            <select
+            id="cities"
+            className="w-full lg:w-1/4 mb-5 border-2 border-gray-300 p-3 rounded-lg focus:outline-none focus:border-pink-400"
+            onChange={(e)=> setQuery(e.target.value)}
+            >
+            <option>City</option>
+
+            {cities.map((city, index) => {
+                return (
+                    <option value={city} key={index}>{city}</option>
+                )
+            }
+            )}
+            </select>
+        </div>
+  
+
+                
+
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
+            
+            {vetData
+            .filter(val =>
+                 (query === "") ||
+                 (Array.isArray(val.name) && val.name.some(name => name.toLowerCase().includes(q))) ||
+                 (typeof val.clinicName === "string" && val.clinicName.toLowerCase().includes(q)) ||
+                 (typeof val.city === "string" && val.city.toLowerCase().includes(q)) ||
+                 (typeof val.location === "string" && val.location.toLowerCase().includes(q))
+            )           
+            .map((vet, index) => {
                 return (
                     <div key={index} className='bg-white shadow-md rounded-lg p-5'>
                         <h3 className='text-xl font-bold'>
@@ -27,13 +71,13 @@ export default function DisplayVets() {
                         <p className='text-md'>{vet.phone.map((phone, index) => {
                             return (
                                 <span key={index}>
-                                    <p>{phone.split(" ").join(" ")}</p>
+                                   <p className="flex gap-2"> <FaPhone/>{phone.split(" ").join(" ")}</p>
                                 </span>
                             )
                         }
                         )}</p>
 
-                        <p className='text-md'>{vet.email}</p>
+                        <p className='text-md flex items-center gap-2'>{vet.email && <FaEnvelope /> }{vet.email}</p>
                     </div>
                 )
               }
