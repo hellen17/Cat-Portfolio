@@ -1,17 +1,32 @@
 import { useState } from "react"
 import { FaEnvelope, FaPhone } from "react-icons/fa"
+import { useEffect } from "react";
 import { Button } from '@chakra-ui/react'
 import { Link } from 'react-scroll';
-import vetData from "../mockdata/vetData";
+// import vetData from "../mockdata/vetData";
 import VetTable from "../components/VetTable";
 
-console.log(vetData)
+
+// console.log(vetData)
 
 export default function DisplayVets() {
 
     const [query, setQuery] = useState("")
+    const [data, setData] = useState([])
+
     console.log(query)
-    const cities = [...new Set(vetData.map((vet) => vet.city))];
+    const cities = [...new Set(data.map((vet) => vet.city))];
+
+    useEffect(() => {
+        const fetchVetData = async () => {
+            const response = await fetch("http://localhost:5000")
+            const data = await response.json()
+            setData(data)
+        }
+        fetchVetData()
+
+    }, [])
+
 
 
     return(
@@ -103,7 +118,7 @@ export default function DisplayVets() {
             }
             )}
         </div> */}
-        <VetTable vetData={vetData} query={query} />
+        <VetTable vetData={data} query={query} />
           
 
         </section>
