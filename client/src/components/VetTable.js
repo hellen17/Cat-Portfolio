@@ -1,9 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function VetTable({ vetData, query }) {
   const q = query.toLowerCase();
 
+  //state variables for pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  //get current items
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = vetData.slice(indexOfFirstItem, indexOfLastItem);
+
+  //change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const handleNextPage  = () => {
+    if (currentPage < Math.ceil(vetData.length / itemsPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
   return (
+    <>
     <div className="overflow-x-auto mt-10">
       <table className="table table-zebra w-full">
         {/* head */}
@@ -21,7 +46,7 @@ export default function VetTable({ vetData, query }) {
         </thead>
         <tbody>
           {/* rows */}
-          {vetData
+          {currentItems
             .filter(
               (val) =>
                 query === "" ||
@@ -65,6 +90,27 @@ export default function VetTable({ vetData, query }) {
         </tbody>
       </table>
     </div>
+
+    {/* pagination */}
+
+    <div class="flex flex-col items-center mt-8">
+      <span class="text-sm text-gray-700 dark:text-gray-400">
+          Showing
+          <span class="font-semibold text-gray-900"> {indexOfFirstItem + 1} </span>
+          to 
+          <span class="font-semibold text-gray-900"> {indexOfLastItem < vetData.length ? indexOfLastItem : vetData.length}</span> of <span class="font-semibold text-gray-900">{vetData.length}</span> Entries
+      </span>
+      <div class="inline-flex mt-2 xs:mt-0">
+          <button onClick={handlePrevPage} class="px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              Prev
+          </button>
+          <button onClick={handleNextPage} class="px-4 py-2 text-sm font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              Next
+          </button>
+      </div>
+    </div>
+
+</>
   );
 }
 
