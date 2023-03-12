@@ -63,7 +63,7 @@ export default function DisplayVets() {
             className="w-full lg:w-1/4 mb-5 border-2 border-gray-300 p-3 rounded-lg focus:outline-none focus:border-pink-400"
             onChange={(e)=> setQuery(e.target.value)}
             >
-            <option disabled>City</option>
+            <option selected disabled>City</option>
 
             {cities.map((city, index) => {
                 return (
