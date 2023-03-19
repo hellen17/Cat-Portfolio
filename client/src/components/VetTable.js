@@ -7,16 +7,30 @@ export default function VetTable({ vetData, query }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
 
+  // filter items based on query
+  const filteredItems = vetData.filter(
+    (val) =>
+      query === "" ||
+      (Array.isArray(val.name) &&
+        val.name.some((name) => name.toLowerCase().includes(q))) ||
+      (typeof val.clinicName === "string" &&
+        val.clinicName.toLowerCase().includes(q)) ||
+      (typeof val.city === "string" && val.city.toLowerCase().includes(q)) ||
+      (typeof val.location === "string" &&
+        val.location.toLowerCase().includes(q))
+  );
+  
+
   //get current items
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = vetData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
 
   //change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleNextPage  = () => {
-    if (currentPage < Math.ceil(vetData.length / itemsPerPage)) {
+    if (currentPage < Math.ceil(filteredItems.length / itemsPerPage)) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -46,22 +60,7 @@ export default function VetTable({ vetData, query }) {
         </thead>
         <tbody>
           {/* rows */}
-          {currentItems
-            .filter(
-              (val) =>
-                query === "" ||
-                (Array.isArray(val.name) &&
-                  val.name.some((name) =>
-                    name.toLowerCase().includes(q)
-                  )) ||
-                (typeof val.clinicName === "string" &&
-                  val.clinicName.toLowerCase().includes(q)) ||
-                (typeof val.city === "string" &&
-                  val.city.toLowerCase().includes(q)) ||
-                (typeof val.location === "string" &&
-                  val.location.toLowerCase().includes(q))
-            )
-            .map((vet, index) => {
+          {currentItems.map((vet, index) => {
               return (
                 <tr key={index}>
                   <td></td>
