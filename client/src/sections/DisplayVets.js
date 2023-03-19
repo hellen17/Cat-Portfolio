@@ -20,7 +20,7 @@ export default function DisplayVets() {
 
     useEffect(() => {
         const fetchVetData = async () => {
-            const response = await fetch("https://purrfecthealth.netlify.app/.netlify/functions/fetch-data")
+            const response = await fetch("http://localhost:9999/.netlify/functions/fetch-data")
             const data = await response.json()
             setData(data)
         }
