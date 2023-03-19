@@ -76,49 +76,6 @@ export default function DisplayVets() {
         </div>
                  
 
-        {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
-        
-            {vetData
-            .filter(val =>
-                (query === "") ||
-                (Array.isArray(val.name) && val.name.some(name => name.toLowerCase().includes(q))) ||
-                (typeof val.clinicName === "string" && val.clinicName.toLowerCase().includes(q)) ||
-                (typeof val.city === "string" && val.city.toLowerCase().includes(q)) ||
-                (typeof val.location === "string" && val.location.toLowerCase().includes(q))
-            )           
-            .map((vet, index) => {
-                return (
-                    <div key={index} className='bg-white shadow-md rounded-lg p-5'>
-                        <h3 className='text-xl font-bold'>
-                            {vet.name.map((name, index) => {
-                                return (
-                                    <span key={index}>
-                                        <p>{name.split(" ").join(" ")}</p>
-                                    </span>
-                                )
-                            }
-                            )}
-                        </h3>
-                        <p className='text-md font-semibold text-pink-400'>{vet.clinicName}</p>
-                        <p className='text-md'>{vet.city}</p>
-                        <p className='text-md'>{vet.location}</p>
-                        <p className='text-md'>{vet.phone.map((phone, index) => {
-                            return (
-                                <span key={index}>
-                                <p className="flex gap-2"> <FaPhone/>{phone.split(" ").join(" ")}</p>
-                                </span>
-                            )
-                        }
-                        )}</p>
-
-                        <p className='text-md flex items-center gap-2'>{vet.email && <FaEnvelope /> }{vet.email}</p>
-                    </div>
-
-            
-                )
-            }
-            )}
-        </div> */}
         <VetTable vetData={data} query={query} />
           
 

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 export default function VetTable({ vetData, query }) {
   const q = query.toLowerCase();
@@ -20,6 +20,10 @@ export default function VetTable({ vetData, query }) {
         val.location.toLowerCase().includes(q))
   );
   
+  // updates the filteredItems array whenever the query prop changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [query]);
 
   //get current items
   const indexOfLastItem = currentPage * itemsPerPage;
