@@ -13,6 +13,7 @@ export default function DisplayVets() {
 
     const [query, setQuery] = useState("")
     const [data, setData] = useState([])
+    console.log('data', data)
 
     console.log(query)
     const cities = [...new Set(data.map((vet) => vet.city))];

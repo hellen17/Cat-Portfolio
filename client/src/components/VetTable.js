@@ -93,18 +93,18 @@ export default function VetTable({ vetData, query }) {
 
     {/* pagination */}
 
-    <div class="flex flex-col items-center mt-8">
-      <span class="text-sm text-gray-700 dark:text-gray-400">
+    <div className="flex flex-col items-center mt-8">
+      <span className="text-sm text-gray-700 dark:text-gray-400">
           Showing
-          <span class="font-semibold text-gray-900"> {indexOfFirstItem + 1} </span>
+          <span className="font-semibold text-gray-900"> {indexOfFirstItem + 1} </span>
           to 
-          <span class="font-semibold text-gray-900"> {indexOfLastItem < vetData.length ? indexOfLastItem : vetData.length}</span> of <span class="font-semibold text-gray-900">{vetData.length}</span> Entries
+          <span className="font-semibold text-gray-900"> {indexOfLastItem < vetData.length ? indexOfLastItem : vetData.length}</span> of <span className="font-semibold text-gray-900">{vetData.length}</span> Entries
       </span>
-      <div class="inline-flex mt-2 xs:mt-0">
-          <button onClick={handlePrevPage} class="px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+      <div className="inline-flex mt-2 xs:mt-0">
+          <button onClick={handlePrevPage} className="px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
               Prev
           </button>
-          <button onClick={handleNextPage} class="px-4 py-2 text-sm font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          <button onClick={handleNextPage} className="px-4 py-2 text-sm font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
               Next
           </button>
       </div>
