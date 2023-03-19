@@ -1,3 +1,6 @@
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
+
+
 import { Link } from 'react-router-dom';
 import React from 'react'
 
@@ -33,7 +36,7 @@ export default function Footer(){
 
             {/* add copyright */}
             <div className="mt-10 text-center">
-                <p className="text-gray-400">© {year} <a href='https://hellenkokach.me/'>Hellen Kokach</a>. All rights reserved.</p>
+                <p className="text-gray-400">© {year} <a className='hover:text-pink-300' href='https://hellenkokach.me/'> Hellen</a>. All rights reserved.</p>
             </div>
 
         </footer>
