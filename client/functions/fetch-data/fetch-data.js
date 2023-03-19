@@ -2,10 +2,17 @@
 
 const vetData = require('../../data/vetData');
 
+//allow cross origin requests
+const headers = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
 const handler = async (event) => {
   try {
     return {
       statusCode: 200,
+      headers,
       body: JSON.stringify(vetData),
     };
   } catch (error) {
