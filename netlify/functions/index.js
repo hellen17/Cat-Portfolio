@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const vetData = require('./data/vetData');
+const vetData = require('../data/vetData');
 
 app.use(cors());
 
