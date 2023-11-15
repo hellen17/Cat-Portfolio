@@ -1,13 +1,9 @@
 import { useState } from "react"
-import { FaEnvelope, FaPhone } from "react-icons/fa"
 import { useEffect } from "react";
 import { Button } from '@chakra-ui/react'
 import { Link } from 'react-scroll';
-// import vetData from "../mockdata/vetData";
 import VetTable from "../components/VetTable";
 
-
-// console.log(vetData)
 
 export default function DisplayVets() {
 
