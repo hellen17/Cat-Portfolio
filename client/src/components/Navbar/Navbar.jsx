@@ -42,7 +42,7 @@ const Navbar = () => {
   return (
     <nav className='nav shadow-md' style={{ backgroundColor: 'black' }}>
       <div style={styles.logoContainer}> 
-        <img src="images/logo.png" style={{width: '3rem', height: '3rem'}} /> 
+        <img src="/images/logo.png" style={{width: '3rem', height: '3rem'}} /> 
       </div>
       
       <div className="main__navigation" id={open ? "showLinks" : ""}>
@@ -52,7 +52,7 @@ const Navbar = () => {
         <ul className='nav__links' onClick={() => setOpen(!open)}>
           
           <Link to="/">Home</Link>
-          <Link to="">Images</Link>
+          <Link to="/images">Images</Link>
           <Link to="/vets">Browse Vets</Link>
 
           {user ? (
