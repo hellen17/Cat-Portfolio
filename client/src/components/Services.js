@@ -23,7 +23,7 @@ export default function Services() {
                 <p className='text-xl mt-3'>
                     View our gallery of cat images. You can also upload your own cat images
                 </p>
-                <Button colorScheme='' className='mt-5 bg-red-400 hover:bg-red-500' ><Link to='#'>Browse</Link></Button>
+                <Button colorScheme='' className='mt-5 bg-red-400 hover:bg-red-500' ><Link to='/images'>Browse</Link></Button>
             </div>
             
         </div>

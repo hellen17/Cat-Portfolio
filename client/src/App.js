@@ -6,6 +6,7 @@ import SignUp from './sections/SignUp';
 import SignIn from './sections/SignIn';
 import DisplayVets from './sections/DisplayVets';
 import Profile from './components/Profile';
+import CatImages from './sections/CatImages';
 
 // 1. import `ChakraProvider` component
 import { ChakraProvider } from '@chakra-ui/react'
@@ -23,6 +24,7 @@ function App() {
           <Route path="/signin" element={<SignIn/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/vets" element={<DisplayVets/>} />
+          <Route path="/images" element={<CatImages/>} />          
           </Routes>
           <Footer />
 
