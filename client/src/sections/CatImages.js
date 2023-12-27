@@ -19,7 +19,7 @@ export default function CatImages() {
                     `https://api.thecatapi.com/v1/images/search?limit=${visibleImages}&api_key=${API_KEY}`
                 );
                 const data = await response.json();
-                setImages(data);
+                setImages((prevImages) => [...prevImages, ...data]);
                 setLoading(false);
             } catch (error) {
                 alert("Error fetching images:", error);
